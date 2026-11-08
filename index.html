@@ -1,0 +1,341 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أثر (Athar) - كبسولة الزمن الرقمية</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #030712;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px rgba(99, 102, 241, 0.3);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
+
+    <!-- Background Ambient Glows -->
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-indigo-900/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="fixed bottom-0 right-1/4 w-96 h-96 bg-purple-900/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- Header / Navbar -->
+    <header class="w-full border-b border-gray-800/60 glass-panel sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 space-x-reverse cursor-pointer" onclick="switchTab('home')">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center glow-effect">
+                    <i class="fa-solid fa-hourglass-start text-white text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="font-black text-xl tracking-wider bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">أثر</h1>
+                    <p class="text-xs text-gray-400">كبسولة الزمن الرقمية</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center space-x-6 space-x-reverse text-sm font-semibold">
+                <button onclick="switchTab('home')" id="nav-home" class="text-indigo-400 transition hover:text-indigo-300">الرئيسية</button>
+                <button onclick="switchTab('create')" id="nav-create" class="text-gray-400 transition hover:text-indigo-300">اصنع كبسولة</button>
+                <button onclick="switchTab('vault')" id="nav-vault" class="text-gray-400 transition hover:text-indigo-300">خزنتي الزمنية</button>
+                <button onclick="switchTab('radio')" id="nav-radio" class="text-gray-400 transition hover:text-indigo-300">راديو الزمن الكوني</button>
+            </nav>
+            <div>
+                <button onclick="switchTab('create')" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-lg hover:opacity-95 transition transform hover:scale-105 active:scale-95">
+                    <i class="fa-solid fa-plus ml-2"></i> اترك أثراً
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+
+        <!-- TAB 1: HOME -->
+        <section id="tab-home" class="space-y-16">
+            <!-- Hero Section -->
+            <div class="text-center max-w-3xl mx-auto space-y-6 pt-6">
+                <span class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                    <i class="fa-solid fa-sparkles ml-1.5"></i> اترك بصمتك في صفحات الزمان
+                </span>
+                <h2 class="text-4xl sm:text-6xl font-black tracking-tight leading-tight">
+                    ما هو <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">الأثر</span> الذي ستتركه للغد؟
+                </h2>
+                <p class="text-gray-400 text-base sm:text-lg leading-relaxed">
+                    احفظ أفكارك، مشاعرك، ورسائل صوتية مشفرة في كبسولة زمنية لا تُفتح إلا في التاريخ الذي تحدده أنت. عش ترقب المستقبل وأصداء الماضي.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 pt-4">
+                    <button onclick="switchTab('create')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-8 py-4 rounded-2xl shadow-xl transition transform hover:scale-105 glow-effect">
+                        ابدأ بصناعة كبسولتك <i class="fa-solid fa-arrow-left mr-2"></i>
+                    </button>
+                    <button onclick="switchTab('radio')" class="glass-panel hover:bg-gray-800 text-gray-200 font-bold px-8 py-4 rounded-2xl transition">
+                        استمع لصدى الغرباء <i class="fa-solid fa-podcast mr-2 text-indigo-400"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+                <div class="glass-panel p-8 rounded-3xl space-y-4 hover:border-indigo-500/40 transition">
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">قفل زمني محصّن</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">رسائلك محمية ومشفرة رقمياً، وتظل مغلقة تماماً حتى يحل وقت استحقاقها في المستقبل.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-3xl space-y-4 hover:border-purple-500/40 transition">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-600/20 text-purple-400 flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-microphone-lines"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">بصمة الصوت والشعور</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">سجل صوتك اليوم لتستمع إلى نبرتك الأصلية عندما تُفتح الكبسولة بعد سنوات طويلة.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-3xl space-y-4 hover:border-pink-500/40 transition">
+                    <div class="w-14 h-14 rounded-2xl bg-pink-600/20 text-pink-400 flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">راديو الصدى الكوني</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">استكشف رسائل عامة تركها أشخاص عبر الزمن يشاركوننا تأملاتهم ولحظاتهم الخالدة.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: CREATE CAPSULE -->
+        <section id="tab-create" class="hidden max-w-2xl mx-auto space-y-8">
+            <div class="text-center space-y-2">
+                <h2 class="text-3xl font-black">تصميم كبسولة "أثر" جديدة</h2>
+                <p class="text-gray-400 text-sm">اختر متى تريد أن تفتح هذه الرسالة وما الذي تحتويه.</p>
+            </div>
+
+            <div class="glass-panel p-8 rounded-3xl shadow-2xl space-y-6">
+                <form id="capsule-form" onsubmit="saveCapsule(event)" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-300 mb-2">عنوان الأثر (مثال: رسالة لنسختي في الثلاثين)</label>
+                        <input type="text" id="capsule-title" required class="w-full bg-gray-900/80 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition" placeholder="أدخل عنواناً معبراً...">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-300 mb-2">تاريخ الفتح المستقبلي</label>
+                            <input type="date" id="capsule-date" required class="w-full bg-gray-900/80 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-300 mb-2">فئة الأثر</label>
+                            <select id="capsule-category" class="w-full bg-gray-900/80 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition">
+                                <option value="شخصي وطموحات">شخصي وطموحات</option>
+                                <option value="رسالة حب وامتنان">رسالة حب وامتنان</option>
+                                <option value="تنبؤات وتحديات">تنبؤات وتحديات</option>
+                                <option value="ذكريات اليوم">ذكريات اليوم</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-gray-300 mb-2">محتوى الرسالة (ماذا تريد أن تقول؟)</label>
+                        <textarea id="capsule-content" rows="5" required class="w-full bg-gray-900/80 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition" placeholder="اكتب مشاعرك، أهدافك، وما يدور في ذهنك اليوم..."></textarea>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-indigo-950/30 border border-indigo-500/20 flex items-center justify-between">
+                        <div class="flex items-center space-x-3 space-x-reverse">
+                            <div class="w-10 h-10 rounded-xl bg-indigo-600/30 text-indigo-400 flex items-center justify-center">
+                                <i class="fa-solid fa-microphone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm">تسجيل البصمة الصوتية</h4>
+                                <p class="text-xs text-gray-400">سيتم حفظ نبرة صوتك الافتراضية مع الأثر</p>
+                            </div>
+                        </div>
+                        <button type="button" onclick="simulateVoiceRecord()" id="voice-btn" class="bg-gray-800 hover:bg-gray-700 text-indigo-300 px-4 py-2 rounded-xl text-xs font-bold transition">
+                            <i class="fa-solid fa-circle text-red-500 ml-1.5 animate-pulse"></i> تسجيل صوتي
+                        </button>
+                    </div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold py-4 rounded-2xl shadow-lg hover:opacity-95 transition transform hover:scale-[1.01]">
+                        <i class="fa-solid fa-lock ml-2"></i> إغلاق الكبسولة وإرسالها للزمن
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- TAB 3: VAULT (MY CAPSULES) -->
+        <section id="tab-vault" class="hidden space-y-8">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h2 class="text-3xl font-black">خزنتك الزمنية الخاصة</h2>
+                    <p class="text-gray-400 text-sm">الآثار والكبسولات التي أرسلتها إلى المستقبل وتنتظر وقت فتحها.</p>
+                </div>
+                <button onclick="switchTab('create')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-4 py-2.5 rounded-xl text-sm transition">
+                    <i class="fa-solid fa-plus ml-1"></i> كبسولة جديدة
+                </button>
+            </div>
+
+            <div id="vault-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dynamically populated capsules -->
+            </div>
+        </section>
+
+        <!-- TAB 4: COSMIC RADIO -->
+        <section id="tab-radio" class="hidden max-w-3xl mx-auto space-y-8">
+            <div class="text-center space-y-2">
+                <span class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                    <i class="fa-solid fa-podcast ml-1.5"></i> أصداء الأزمان المفتوحة
+                </span>
+                <h2 class="text-3xl font-black">راديو الزمن الكوني</h2>
+                <p class="text-gray-400 text-sm">استمع لرسائل حقيقية أفرج عنها أصحابها من الماضي.</p>
+            </div>
+
+            <div class="glass-panel p-8 rounded-3xl text-center space-y-6 relative overflow-hidden">
+                <div class="absolute -right-20 -top-20 w-48 h-48 bg-purple-600/10 rounded-full blur-2xl"></div>
+                <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center text-3xl text-white glow-effect floating">
+                    <i class="fa-solid fa-radio"></i>
+                </div>
+                <div class="space-y-2">
+                    <span id="radio-tag" class="text-xs font-bold px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full">تأملات حياتية</span>
+                    <h3 id="radio-title" class="text-xl font-bold text-gray-100">"عندما تبدو الأيام صعبة، تذكر أنك ستتجاوزها."</h3>
+                    <p id="radio-author" class="text-sm text-gray-400">أُرسلت في: 12 مارس 2021 • فُتحت في: 12 مارس 2026</p>
+                </div>
+                <div class="bg-gray-900/60 p-6 rounded-2xl border border-gray-800 text-right text-sm text-gray-300 leading-relaxed" id="radio-message">
+                    "إذا كنت تقرأ هذه الرسالة الآن، فهذا يعني أنك عبرت العاصفة التي كنت أخشاها طوال العام الماضي. لا أصدق أننا وصلنا إلى هنا. أتمنى أن تكون قد حققت جزءاً من أحلامنا القديمة."
+                </div>
+                <div class="flex justify-center items-center gap-4 pt-4">
+                    <button onclick="nextRadioMessage()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3 rounded-xl text-sm transition flex items-center gap-2">
+                        <i class="fa-solid fa-shuffle"></i> بث أثر آخر
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full border-t border-gray-800/60 py-6 text-center text-xs text-gray-500 glass-panel mt-12">
+        <p>برنامج أثر (Athar) &copy; 2026 - جميع الحقوق محفوظة لرحلة الزمن الرقمي.</p>
+    </footer>
+
+    <!-- Custom Notification Box (No alert used) -->
+    <div id="custom-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden">
+        <div class="glass-panel p-6 rounded-3xl max-w-sm w-full mx-4 text-center space-y-4 border border-indigo-500/30">
+            <div id="modal-icon" class="w-12 h-12 rounded-full bg-indigo-600/20 text-indigo-400 flex items-center justify-center mx-auto text-xl">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 id="modal-title" class="text-lg font-bold">تم بنجاح</h3>
+            <p id="modal-desc" class="text-xs text-gray-400">تم حفظ أثرك بنجاح في خزنتك الزمنية.</p>
+            <button onclick="closeModal()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 rounded-xl text-xs transition">حسناً</button>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Sample initial capsules in Vault
+        let capsules = JSON.parse(localStorage.getItem('athar_capsules')) || [
+            {
+                id: 1,
+                title: "رسالة لنسختي بعد التخرج",
+                date: "2029-05-10",
+                category: "شخصي وطموحات",
+                content: "أتمنى أن تكون قد أصبحت مهندس البرمجيات الذي حلمت به، ولا تنسَ الشغف الذي بدأنا به اليوم.",
+                voice: true,
+                locked: true
+            },
+            {
+                id: 2,
+                title: "وعود السنة الجديدة",
+                date: "2025-01-01",
+                category: "تنبؤات وتحديات",
+                content: "هذه الرسالة تفتح اليوم! هل نجحت في تحقيق الأهداف التي وضعناها معاً؟",
+                voice: false,
+                locked: false
+            }
+        ];
+
+        // Cosmic Radio Messages Database
+        const radioMessages = [
+            {
+                title: "إلى من يملكه المستقبل",
+                author: "سالم من دبي",
+                dateSent: "15 يناير 2020",
+                dateOpened: "15 يناير 2026",
+                category: "تأملات حياتية",
+                message: "أتمنى أن تكون التكنولوجيا قد جعلت العالم أكثر هدوءاً وليس أكثر صخباً. إذا كانت السيارات الطائرة موجودة الآن، فأرجو أن تكون قد استقللت واحدة نيابة عني!"
+            },
+            {
+                title: "شغف البدايات",
+                author: "ليلى من القاهرة",
+                dateSent: "10 أكتوبر 2018",
+                dateOpened: "10 أكتوبر 2025",
+                category: "شخصي وطموحات",
+                message: "أنا أكتب هذه الرسالة وأنا أجلس في غرفة ضيقة على ضوء مصباح صغير. إذا كنت تقرأها من مكتبك الفاره، تذكر من أين بدأت."
+            },
+            {
+                title: "رسالة إيمان بالأمل",
+                author: "ماجد من الرياض",
+                dateSent: "5 يوليو 2021",
+                dateOpened: "5 يوليو 2026",
+                category: "رسالة حب وامتنان",
+                message: "الأوقات الصعبة التي تمر بها اليوم مجرد سحابة صيف. عندما تفتح هذه الكبسولة، كن فخوراً بكل خطوة صغيرة قطعتها."
+            }
+        ];
+
+        let currentRadioIndex = 0;
+
+        // Switch Tabs Function
+        function switchTab(tabId) {
+            ['home', 'create', 'vault', 'radio'].forEach(t => {
+                document.getElementById('tab-' + t).classList.add('hidden');
+                const navBtn = document.getElementById('nav-' + t);
+                if(navBtn) navBtn.className = "text-gray-400 transition hover:text-indigo-300";
+            });
+
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            const activeNav = document.getElementById('nav-' + tabId);
+            if(activeNav) activeNav.className = "text-indigo-400 font-bold transition";
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if(tabId === 'vault') renderVault();
+            if(tabId === 'radio') updateRadio();
+        }
+
+        // Simulate Voice Recording
+        function simulateVoiceRecord() {
+            const btn = document.getElementById('voice-btn');
+            btn.innerHTML = '<i class="fa-solid fa-spinner animate-spin ml-1"></i> جاري تسجيل الصوت...';
+            btn.classList.add('bg-indigo-600', 'text-white');
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fa-solid fa-check text-green-400 ml-1"></i> تم حفظ البصمة الصوتية';
+                showModal("تم التسجيل", "تم التقاط بصمتك الصوتية بنجاح وإرفاقها بالكبسولة الزمنية.");
+            }, 2000);
+        }
+
+        // Save Capsule
+        function saveCapsule(e) {
+            e.preventDefault();
+            const title = document.getElementById('capsule-title').value;
+            const date = document.getElementById('capsule-date').value;
+            const category = document.getElementById('capsule-category').value;
+            const content = document.getElementById('capsule-content').value;
+
+            const newCapsule = {
+                id: Date.now(),
+                title,
+   
